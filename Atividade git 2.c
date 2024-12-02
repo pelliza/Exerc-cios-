@@ -1,24 +1,13 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
     int n;
     scanf("%d", &n);
-    int size = 2 * n - 1;
-    int pattern[size][size];
 
-    for (int i = 0; i < n; i++) {
-        for (int j = i; j < size - i; j++) {
-            for (int k = i; k < size - i; k++) {
-                pattern[j][k] = n - i;
-            }
-        }
-    }
-
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
-            printf("%c ", pattern[i][j] + '0');
+    for (int i = 0; i < 2 * n - 1; i++) {
+        for (int j = 0; j < 2 * n - 1; j++) {
+            printf("%d ", n - (i < j ? (i < 2 * n - 2 - j ? i : 2 * n - 2 - j) : (j < 2 * n - 2 - i ? j : 2 * n - 2 - i)));
         }
         printf("\n");
     }
